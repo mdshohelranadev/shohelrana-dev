@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-white font-sans text-base leading-relaxed text-gray-700 antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display font-bold tracking-tight text-black;
+  }
+  section[id] {
+    scroll-margin-top: 3.5rem;
+  }
+  @media (min-width: 768px) {
+    section[id] { scroll-margin-top: 4rem; }
+  }
+  @media (min-width: 1024px) {
+    section[id] { scroll-margin-top: 5rem; }
+  }
+  :focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: #000;
+    color: #fff;
+  }
+  img { max-width: 100%; }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply py-16 md:py-24;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-white transition duration-300 hover:-translate-y-1 hover:border-lineHover hover:shadow-lg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  header, .no-print { display: none !important; }
+  body { background: #fff; }
+}
